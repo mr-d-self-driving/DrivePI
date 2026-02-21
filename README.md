@@ -40,6 +40,7 @@
 * **Strong Performance**. Despite utilizing only a compact 0.5B parameter MLLM backbone (Qwen2.5), DrivePI outperforms existing VA models in 3D occupancy and occupancy flow while maintaining comparable interactive capabilities with existing VLA frameworks. 💪
 
 ## News
+* **2026.02.21**: [DrivePI](http://arxiv.org/abs/2512.12799) and [GenieDrive](https://github.com/Huster-YZY/GenieDrive) have been accepted by CVPR 2026!
 * **2025.12.15**: [DrivePI](http://arxiv.org/abs/2512.12799) paper released. 🔥
 * **2025.12.15**: [GenieDrive](https://github.com/Huster-YZY/GenieDrive) (Physics-Aware Driving World Model) paper released. 🔥
 * **2025.11.04**: Our previous work [UniLION](https://github.com/happinesslz/UniLION) has been released. Check out the [codebase](https://github.com/happinesslz/UniLION) for unified autonomous driving model with Linear Group RNNs. 🚀
@@ -169,8 +170,8 @@ Remarkably, with only a 0.5B Qwen2.5 model as MLLM backbone, DrivePI as a single
 @article{liu2025drivepi,
   title={DrivePI: Spatial-aware 4D MLLM for Unified Autonomous Driving Understanding, Perception, Prediction and Planning},
   author={Liu, Zhe and Huang, Runhui and Yang, Rui and Yan, Siming and Wang, Zining and Hou, Lu and Lin, Di and Bai, Xiang and Zhao, Hengshuang},
-  journal={arXiv preprint},
-  year={2025}
+  journal={CVPR},
+  year={2026}
 }
 ```
 
