@@ -1,15 +1,7 @@
 #!/bin/bash
 
-#SBATCH --job-name=eval
-#SBATCH -p gpu,gpu_shared
-#SBATCH --time=96:00:00
 
-#SBATCH --gres=gpu:4
-#SBATCH -N 1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem-per-gpu=30G
-
-source ../../conda_env_cuda12.4.sh drivepi_hwei
+conda activate drivepi
 nvidia-smi
 nvcc -V
 
