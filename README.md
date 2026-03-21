@@ -40,6 +40,7 @@
 * **Strong Performance**. Despite utilizing only a compact 0.5B parameter MLLM backbone (Qwen2.5), DrivePI outperforms existing VA models in 3D occupancy and occupancy flow while maintaining comparable interactive capabilities with existing VLA frameworks. 💪
 
 ## News
+* **2026.03.21**: The training and evaluation code for [DrivePI](http://arxiv.org/abs/2512.12799) have been released! Data preparation guidelines, trained models and all associated benchmarks will be available within a week!
 * **2026.02.21**: [DrivePI](http://arxiv.org/abs/2512.12799) and [GenieDrive](https://github.com/Huster-YZY/GenieDrive) have been accepted by CVPR 2026!
 * **2025.12.15**: [DrivePI](http://arxiv.org/abs/2512.12799) paper released. 🔥
 * **2025.12.15**: [GenieDrive](https://github.com/Huster-YZY/GenieDrive) (Physics-Aware Driving World Model) paper released. 🔥
@@ -49,9 +50,10 @@
 
 ## TODO
 - [x] Release the paper.
+- [x] Release the code of DrivePI.
 - [ ] Release checkpoints of DrivePI.
-- [ ] Release all code of DrivePI.
 - [ ] Release the dataset.
+- [ ] Support WAYMO E2E Dataset
 
 
 ## 🚗 Overview
@@ -163,6 +165,45 @@ Remarkably, with only a 0.5B Qwen2.5 model as MLLM backbone, DrivePI as a single
 | I | ✓ | -- | -- | -- | -- | -- | **61.2** |
 | II | -- | ✓ | 47.5 | 0.69 | 1.02 | 0.39 | -- |
 | III | ✓ | ✓ | **49.3** | **0.51** | **0.49** | **0.38** | 60.7 |
+
+## 🛠️ Installation and Running
+
+### Environment Setup
+```bash
+# Create conda environment
+conda create -n drivepi python==3.10.18
+
+# Install requirements
+pip install -r requirements.txt
+
+# Install EMOVA
+# Reference: https://github.com/emova-ollm/EMOVA
+pip install -e .
+pip install flash-attn --no-build-isolation
+```
+
+### Data Preparation
+1. BEV features generation:
+   - Use [UniLION](https://github.com/happinesslz/UniLION) to generate and save BEV features
+   - Save path: `/path/DrivePI_Data/unilion_bev_feats_train/`
+   - Name the features using token names
+
+2. QA datasets:
+   - Save at: `/path/DrivePI_Data/drivepi_captions/`
+
+### Training
+```bash
+bash run_train_occ_action_llm_8_gpus_final.sh
+```
+
+### Testing
+```bash
+# For occupancy and action testing
+bash run_test_occ_llm_occ_action.sh
+
+# For text understanding testing
+bash run_test_occ_llm__text.sh
+```
 
 ## 📝 Citation
 
